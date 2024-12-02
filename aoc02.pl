@@ -32,7 +32,7 @@ while (my $line = <$data>) {
 
 my $sum1 = 0;
 for my $report (@reports) {
-	if (increasing(@$report) or decreasing(@$report)) {
+	if (increasing(@$report) || decreasing(@$report)) {
 		++$sum1;
 	}
 }
@@ -43,14 +43,14 @@ print "\n";
 
 my $sum2 = 0;
 for my $report (@reports) {
-	if (increasing(@$report) or decreasing(@$report)) {
+	if (increasing(@$report) || decreasing(@$report)) {
 		++$sum2;
 		next;
 	}
 	
 	for my $i (0..$#$report) {
 		my @sreport = (@$report[0..$i-1], @$report[$i+1..$#$report]);
-		if (increasing(@sreport) or decreasing(@sreport)) {
+		if (increasing(@sreport) || decreasing(@sreport)) {
 			++$sum2;
 			last;
 		}
